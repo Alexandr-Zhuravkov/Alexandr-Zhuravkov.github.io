@@ -1,0 +1,317 @@
+html,body  {
+	margin: 0;
+	padding: 0;
+	font-family: Arial, sans-serif;
+	
+}
+h1,h2,h3,h4,h5,h6,ul,li {
+	margin: 0;
+	padding: 0;
+}
+
+.wraper {
+	overflow:hidden;
+	margin: 0;
+	padding: 0;
+	width: 100vw;
+	height: 100vh;
+	background: url(img/windows.jpg) 0 0 no-repeat;
+   	background-size: cover;
+}
+.desktop {
+	margin: 0;
+	padding: 0;
+	width: 100vw;
+	height: calc(100vh - 45px);
+}
+
+.window {
+	display: none;
+	position: absolute;
+	overflow: hidden;
+	top: 3%;
+	left: 10%;
+	padding-top: 40px;
+	width: 600px;
+	height: 550px;
+	background: #fff;
+	border: 5px solid #25c6ff;
+	-webkit-box-shadow: 2px 2px 10px #ccc;
+			box-shadow: 2px 2px 10px #ccc;
+	border-radius: 8px;
+	-moz-box-sizing: border-box;
+		 box-sizing: border-box;
+}
+
+.panel {
+	position: absolute;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	width: 100%;
+	height: 40px;
+	-moz-box-sizing: border-box;
+		 box-sizing: border-box;
+	background: #25c6ff;
+}
+.panel:before {
+			content: '';
+			display: inline-block;
+			width: 0;
+			height: 100%;
+			vertical-align: middle;
+		}
+.btns {
+	display: inline-block;
+	float: right;
+	padding: 10px;
+}
+.btn {
+	display: inline-block;
+	text-align: center;
+	line-height: 100%;
+	width: 20px;
+	height: 20px;
+	margin-left: 10px;
+	border: 1px solid #ccc;
+	border-radius: 50%;
+	cursor: pointer;
+}
+.btn-close {
+	background: #ff3939;
+}
+.btn-max {
+	background: #3fbd4a;
+}
+.btn-min {
+	background: #ededed;
+}
+.resize {
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+	width: 20px;
+	height: 20px;
+	border-radius: 80% 0 0 0;
+	background-color: #25c6ff;
+}
+.file {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	display: inline-block;
+	overflow: hidden;
+	padding-bottom: 20px;
+	height: 64px;
+	width: 64px;
+	background: url(img/icon.png) 0 0 no-repeat;
+	-webkit-background-size: 64px 64px;
+			background-size: 64px 64px;
+	cursor: pointer;		
+}
+.file-name-wrap {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+
+}
+.file-name {
+	width: 64px;
+	overflow: hidden;
+	font-size: 12px;
+	color: white;
+	text-shadow: 1px 1px 1px black;
+	white-space: nowrap;
+	-ms-word-wrap: normal;
+		word-wrap: normal;
+	-ms-text-overflow: ellipsis;
+	 -o-text-overflow: ellipsis;
+		text-overflow: ellipsis;
+}
+.footer {
+	padding: 0;
+	position: absolute;
+	bottom:0;
+	left:0;
+	width: 100%;
+	height: 45px;
+	background: rgba(0, 255, 255, 0.7); 
+	box-shadow: 0 -2px 5px aqua;
+
+}
+.pusk {
+	float: left;
+	margin-left:15px;
+	padding: 0;
+	height: 40px;
+	width: 40px;
+	border-radius:50%;
+	background: url(img/pusk1.png) 0px 0px no-repeat;
+	background-size: cover;
+	box-sizing: border-box;
+	transition: all 0.2s linear 0s;
+}
+.pusk:hover {
+	box-shadow: 0 0 30px blue;
+	cursor: pointer;
+}
+
+.icon {
+	display: none;
+	float: left;
+	margin-left:25px;
+	padding: 0;
+	height: 100%;
+	width: 60px;
+	background: url(img/icon1.png) 7px 0px no-repeat;
+	background-size: contain;
+	box-sizing: border-box;
+	cursor: pointer;
+}
+
+.icon:hover {
+	border-left: 1px solid skyblue;
+	border-right: 1px solid skyblue;
+}
+.time {
+	float:right;
+	margin-right: 30px;
+	padding-top: 3px;
+	height: 100%;
+	width: 70px;
+	font-size: 15px;
+	text-align: center;
+	color: white;
+	text-shadow: 1px 1px 1px black;
+	box-sizing: border-box;
+}
+.menuPusk {
+	position: absolute;
+	display: none;
+	bottom: 50px;
+	left: 0;
+	height: 600px;
+	width: 400px;
+	background: url(img/menuPusk.png) 0 0 no-repeat;
+	background-size: contain;
+	cursor: pointer;
+}
+
+/*FOOTBALL*/
+
+.game {
+	position: relative;
+	margin: auto;
+	width: 100%;
+	height: 100%;
+	background: url(img/trava.jpg) 0 0 repeat, green;
+}
+.ball-box {
+	position: relative;
+	margin: 40px;
+	margin-top: 0;
+	height: 80%;
+	background-color: #fff;
+	text-align: center;
+	border: 3px solid grey
+	-webkit-box-shadow: 0px 0px 10px #ccc;
+			box-shadow: 0px 0px 10px #ccc;
+}
+.btn-kick {
+	display: inline-block;
+	margin: 40px auto 0 auto;
+	padding: 20px;
+	font-size: 20px;
+	text-align: center;
+	-webkit-box-shadow: inset 0px 0px 10px #ccc;
+			box-shadow: inset 0px 0px 10px #ccc;
+	border-radius: 10px;
+	cursor: pointer;
+}
+.ball {
+	position: absolute;
+	top: 0;
+	left: 100px;
+	margin-bottom: 50px;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	overflow: hidden;
+	background-image: url(img/football.png);
+	-webkit-background-size: cover;
+			background-size: cover;
+	z-index: 1;
+}
+.vorota {
+	position: absolute;
+	bottom: -75px;
+	right: 0;
+	width: 200px;
+	height: 200px;
+	background-image: url(img/vorota.png);
+	-webkit-background-size: cover;
+			background-size: cover;
+}
+.man {
+	position: absolute;
+	bottom: -35px;
+	left: -160px;
+	height: 200px;
+	width: 150px;
+	opacity: 0;
+	background-image: url(img/man.png);
+	-webkit-background-size: cover;
+			background-size: cover;
+}
+.power-box {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 200px;
+	height: 200px;	
+}
+.power-wrap {
+	overflow: hidden;
+	display: inline-block;
+	padding-top: 0px;
+	height: 100%;
+	box-sizing: border-box;
+}
+
+.animation {
+	animation-name: powermove;
+   	animation-duration: 0.5s;
+   	animation-timing-function: linear;
+   	animation-iteration-count: infinite;
+}
+
+@keyframes powermove {
+  			0% {padding-top: 0px;}
+  			25% {padding-top: 100px;}
+  			50% {padding-top: 200px;}
+  			75% {padding-top: 100px;}
+  			100% {padding-top: 0px;}
+  		}
+
+.power {
+	display: inline-block;
+	width: 30px;
+	height: 100%;
+	background: #ff400d;
+	background: -webkit-gradient(linear, center top, center bottom, from(#ff400d), to(#ff826e));
+	border-radius: 10px;
+}
+.goal {
+	margin-top: 30px;
+	font-size: 36px;
+	color: green;
+}
+
+
+
+
+
+
+

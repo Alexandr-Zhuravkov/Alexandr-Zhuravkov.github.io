@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Заявка</title>
+	<link rel="stylesheet" href="reset.css">
+	<link rel="stylesheet" href="style.css">
+	<link rel="shortcut icon" href="img/favicon.ico">
+</head>
+<body>
+	<div class="conteiner">
+		<div class="head">
+			<div class="history">
+				<h1>Гора Парнас</h1>
+				<div class="text">
+					<p>Гора Парнас считалась средоточием земли, подобно тому, как Дельфы признавался центром панэллинского государства в религиозном отношении. Согласно преданию, когда глава олимпийской семьи богов Зевс (Диас) решил уничтожить испорченный человеческий род, наслав на него потоп, ставший известный как потоп Девкалиона, сын Прометея Девкалион, послушавшись совета отца, построил корабль для себя и своей жены Пирры.</p> 
+					<p>На 10-ый день, после девятидневного непрерывного дождя, корабль пристал к Парнасу, где Девкалион принес жертву в честь отца богов и людей Зевса, который после этого исполнил желание Девкалиона возродить человеческий род.</p>
+					<p>Название горы — догреческое по происхождению — тождественно названию города в Каппадокии, поэтому обычно относится учёными к анатолийскому субстрату. Слово выводят из хетт. parna- «дом», и трактуют название этой священной горы как «дом богов»[1]. Противники этой точки зрения доказывают, что по формальным причинам топоним относится не к хетто-лувийской, а к палеобалканской топонимической системе.</p>
+				</div>
+			</div>
+
+			<div class="descript">
+				<span>Страна:</span> Греция <br>
+				<span>Населённый пункт:</span> Дельфы <br>
+				<span>Горная система:</span> Пинд <br>
+				<span>Высота вершины:</span> 2457 м <br>
+				<div class="link">
+					<a href="https://ru.wikipedia.org/wiki/%D0%9F%D0%B0%D1%80%D0%BD%D0%B0%D1%81" target="_blank">Подробнее о горе</a>
+				</div>
+			</div>
+			<div class="ufo"></div>
+		</div>
+		<nav class="menu">
+			<a class="item" href="!#" target="blank">Горы</a>
+			<a class="item" href="!#" target="blank">Равнины</a>
+			<a class="item" href="!#" target="blank">Реки</a>
+			<a class="item" href="!#" target="blank">Моря</a>
+			<a class="item" href="!#" target="blank">Поля</a>
+			<a class="item" href="!#" target="blank">Холмы</a>
+			<a class="item" href="!#" target="blank">Вулканы</a>
+			<a class="item" href="!#" target="blank">НЛО</a>
+			<div class="nlo">
+				<div class="ufo1"></div>
+			</div>
+		</nav>
+		<div class="application">
+			<h2>Заявка на скалолазание</h2>
+			<form action="/user" method="GET">
+				<div class="box1">
+					<div class="textin">
+						<label>Имя:
+							<input type="text" name="name" id="name">
+						</label>
+					</div>
+					<div class="textin">
+						<label>Отчество:
+							<input type="text" name="middlename" id="middlename">
+						</label>
+					</div>
+					<div class="textin">
+						<label>Фамилия:
+							<input type="text" name="surname" id="surname">
+						</label>
+					</div>
+				</div>
+				<div class="box2">
+					<p>Комментарий:</p>
+					<br>
+					<textarea class="textarea" name="comments" cols="25" rows="4"></textarea>
+				</div>
+				<div class="box3">
+					<div class="gender">
+						<span>Пол:</span>
+						<label>
+							<input type="radio" name="gender">М
+						</label>
+						<label>
+							<input type="radio" name="gender">Ж
+						</label>
+					</div>
+					<div class="country">
+						<span>Страна:</span>
+						<select name="country">
+							<option>Выберите страну</option>
+							<option value="es">Испания</option>
+							<option value="en">Англия</option>
+							<option value="de">Германия</option>
+							<option value="ru">Россия</option>
+							<option value="it">Италия</option>
+							<option value="usa">США</option>
+						</select>
+					</div>
+					<div class="group">
+						<span>Группа:</span>
+						<label>
+							<input type="checkbox" name="a">A
+						</label>
+						<label>
+							<input type="checkbox" name="b">B
+						</label>
+						<label>
+							<input type="checkbox" name="c">C
+						</label>
+					</div>
+				</div>
+				<button class="button" type="submit" >Отправить заявку</button>
+			</form>
+		</div>
+		<div class="window">
+			<div class="head-window">Оформление заявки</div>
+			<div class="massege-window"></div>
+			<label id="input-tour"><span id="inp-text">Кол-во путевок :</span>
+				<input type="text" id="tour">
+			</label>
+			<label id="check-insurance">
+				<input type="checkbox" id="insurance">
+				<span class="ins-text">Желаете ли вы приобрести страховку на каждую путевку</span>
+			</label>
+			<div class="btn">
+				<button class="order">OK</button>
+				<button class="ok">OK</button>
+				<button class="cansel">CANSEL</button>
+			</div>
+		</div>
+	</div>
+	<script>
+		var button = document.querySelector('.button');
+		var tur = 'Тур на гору \"Парнас\"';
+		var price = 1000;
+		var insurancePrice = 20;
+		var currency = 'ЕВРО';
+		var amount;
+		var priceAmount;
+		var insurancePriceAmount;
+		var windowBox = document.querySelector('.window');
+		var massegeWindow = document.querySelector('.massege-window');
+		var name;
+		var inpText = document.querySelector('#inp-text');
+		var inputTour = document.querySelector('#input-tour');
+		
+		var checkInsurance = document.querySelector('#check-insurance');
+		var insurance = document.querySelector('#insurance');
+		var ord = document.querySelector('.order');
+		var ok = document.querySelector('.ok');
+		var cansel = document.querySelector('.cansel');
+		var regCard = /\b[0-9]{4}\s?[0-9]{4}\s?[0-9]{4}\s?[0-9]{4}\b/g;
+
+		function submit () {
+			var name = document.querySelector('#name');
+			var surname = document.querySelector('#surname');
+			var middlename = document.querySelector('#middlename');
+			ord.style.display = 'none';
+			ok.style.display = 'inline-block';
+			if (!Number(name.value.trim()) && !Number(surname.value.trim()) && !Number(middlename.value.trim()) && name.value.trim() && surname.value.trim() && middlename.value.trim()) {
+				var userName = 'Приветствуем вас, ' + name.value.trim().toUpperCase() + ' !';
+				massegeWindow.textContent = userName + '  ' + 'Сейчас будет оформлен заказ на ' + tur + ' стоимостью ' + price + ' '  + currency + '. Укажите количество путевок, которое желаете купить!' + ' ( стоимость одной страховки ' +insurancePrice + ' ' + currency +' )';
+
+				windowBox.style.display = 'block';
+			} else {
+				massegeWindow.textContent = 'Заполните все поля!';
+				windowBox.style.display = 'block';
+				checkInsurance.style.display = 'none';
+				inputTour.style.display = 'none';
+				
+				ok.style.display = 'none';
+				return;
+			};
+			ok.addEventListener('click', calc);
+
+
+		};
+
+
+		function calc () {
+			ord.style.display = 'inline-block';
+			ok.style.display = 'none';
+			var tour = document.querySelector('#tour');
+			amount = tour.value;
+			priceAmount = price * Number(amount);
+			insurancePriceAmount = insurancePrice * Number(amount);
+			if (Number(amount.trim())) {
+				if (insurance.checked) {
+					massegeWindow.textContent = 'К оплате: ' + (priceAmount + insurancePriceAmount) + ' ' + currency + '!  Оформить заказ? ';
+				} else {
+					massegeWindow.textContent = 'К оплате: ' + priceAmount + ' ' + currency + '!  Оформить заказ? ';
+				};
+				checkInsurance.style.display = 'none';
+				inpText.textContent = 'Введите номер банковской карты :';
+				tour.value = '0000 0000 0000 0000';
+				ord.addEventListener('click', order);
+			} else {
+				tour.value = 'Укажите кол-во';
+				submit();
+			};
+
+
+		};
+
+		function order () {
+			var tour = document.querySelector('#tour');
+			if (regCard.test(tour.value)) {
+				inputTour.style.display = 'none';
+				ok.style.display = 'none';
+				ord.style.display = 'none';
+				massegeWindow.textContent = 'Спасибо , ваш заказ был успешно оформлен! ' + 'Всего доброго , будем рады с вами сотрудичать! ';
+				tour.value = '';
+				tour.style.color = 'black';
+			} else {
+				tour.value = '0000 0000 0000 0000';
+				tour.style.color = 'red';
+			}
+			
+
+		};
+
+		function remove (){
+			document.querySelector('#name').value = '';
+			document.querySelector('#surname').value = '';
+			document.querySelector('#middlename').value = '';
+			inputTour.style.display = 'block';
+			ok.style.display = 'inline-block';
+			tour.value = '';
+			checkInsurance.style.display = 'block';
+			inpText.textContent = 'Кол-во путевок : ';
+			windowBox.style.display = 'none';
+			
+
+		};
+
+		button.addEventListener('click', function(ev){
+			ev.preventDefault();
+			submit();	
+		});
+		cansel.addEventListener('click', remove);
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,339 @@
+		.conteiner {
+			padding: 50px 50px 19px 50px;
+			font-family: 'Tahoma' serif;
+			background: url('./img/mountain.jpg') 0 0 no-repeat;
+			background-size: cover;
+			background-color: lightgrey;
+		}
+		/*ШАПКА*/
+		.head {
+			position: relative;
+			margin: auto;
+			margin-bottom: 50px;
+			width: 1100px;
+			overflow: hidden;	
+		}
+		/*БЛОК С ОПИСАНИЕМ*/
+		.history {
+			padding-left: 10px;
+			float: left;
+			width: 400px;
+			height: 200px;
+		}
+		h1 {
+			color: #fff;
+			font-size: 48px;
+		}
+		.text {
+			overflow: hidden;
+			width: 400px;
+			height: 130px;
+			color: #83a6ac;
+			font-size: 14px;
+		}
+		.text:hover {
+			overflow-y: auto;
+			text-shadow: 0 0 10px white;
+		}
+		/*БЛОК С ХАРАКТЕРИСТИКАМИ*/
+		.descript {
+			float: right;
+			margin: 10px 10px 0 0;
+			padding: 10px;
+			width: 300px;
+			height: 160px;
+			color: #fff;
+			font-size: 18px;
+			line-height: 25px;
+			background: url('./img/info-bg.png') 0 0 repeat;
+		}
+		.descript span {
+			color: #b1d0dc;
+		}
+		.link {
+			margin: 15px 0;
+			height: 42px;
+			line-height: 42px;
+			text-align: center;
+			border: 2px solid #00a1b3;
+			background: url('./img/button.png')0 0 repeat;
+		}
+		.link a {
+			padding: 10px 60px;
+			text-decoration: none;
+			font-size: 20px;
+			color: #fff;
+		}
+		.link:hover  {
+			box-shadow: 0 0 10px aqua;
+		}
+		/*НЛО*/
+		.ufo {
+			position: absolute;
+			top:30px;
+			left: calc(50% - 20px);
+			width: 118px;
+			height: 90px;
+			background: url('./img/nlo.png') 0 0 repeat;
+			background-size: cover;
+		}
+		/*БДОК МЕНЮ*/
+		.menu {
+			display: flex;
+			flex-flow: row wrap;
+			justify-content: space-around;
+			align-items: stretch;
+			margin: auto;
+			width: 1100px;
+			height: 90px;
+			background: url('./img/menu-bg.png');
+		}
+		/*ЭЛЕМЕНТЫ МЕНЮ*/
+		.item {
+			margin: 2px 2px 0 0;
+			padding: 5px 5px;
+			text-align: center;
+			line-height: 80px;
+			text-decoration: none;
+			font-size: 24px;
+			color:#3bbac2;
+		}
+		.item:hover {
+			margin: 0px 2px 0 0;
+			border-top: 2px solid #fdd087;
+			color: #fdd087;
+		}
+		/*КОНТЕЙНЕР ДЛЯ ПОЗИЦИОНИРОВАНИЯ НЛО*/
+		.nlo {
+			position: relative;
+		}
+		/*БЛОК С НЛО В МЕНЮ*/
+		.ufo1 {
+			position: absolute;
+			top: calc(100% - 20px);
+			left: -40px;
+			width: 80px;
+			height: 50px;			
+			background: url('./img/nlo.png') 0 0 no-repeat;
+			background-size: cover;
+			z-index: 5;
+		}
+		/*БЛОК С ФОРМИОЙ ДЛЯ ЗАЯВКИ НА СКАЛОЛАЗАНИЕ*/
+		.application {
+			position: relative;
+			margin: auto;
+			padding-top: 30px;
+			width: 1100px;
+			color: #afafaf;
+			font-size: 14px;
+			font-weight: bold;
+			background: url('./img/content-bg.png') 0 0 repeat;
+			overflow: hidden;
+		}
+		h2 {
+			font-weight: bold;
+			font-size: 20px;
+			text-align: center;
+			margin-bottom: 20px;
+		}
+		/*БЛОК ДЛЯ ВВОДА ИМЯ ФАМИЛИЯ ЦВЕТ КОЖИ*/
+		.box1 {
+			float: left;
+			padding: 20px;
+			height: 150px;
+			line-height: 40px;
+			text-align: right;
+		}
+		/*ОФОРМЛЕНИЕ ПОЛЕЙ ВВОДА*/
+		.box1 input {
+			font-size: 16px;
+			background-color: #bcddea;
+			border-radius: 5px;
+			border:2px solid skyblue;
+		}
+		/*БЛОК ДЛЯ КОММЕНТАРИЯ*/
+		.box2 {
+			float: right;
+			padding-top: 20px;
+			width: 250px;
+			height: 150px;
+		}
+		/*ОФОРМЛЕНИЕ ПОЛЯ ВВОДА КОММЕНТАРИЯ*/
+		.textarea {
+			background-color: #bcddea;
+			border-radius: 5px;
+			border:2px solid skyblue;
+			resize: none;
+		}
+		/*БЛОК ДЛЯ ПОЛ СТРАНА ГРУППА*/
+		.box3 {
+			width: 250px;
+			height: 150px;
+			padding-top: 20px;
+			margin: 20px auto;
+			line-height: 40px;
+		}
+		/*БЛОК ДЛЯ ПОЛ*/
+		.gender {
+			margin-left: 42px;
+		}
+		.gender input {
+			margin-right: 5px;
+			margin-left: 10px;
+		/*БЛОК ДЛЯ СТРАНА*/
+		}
+		.country  {
+			margin-left: 20px;
+		}
+		.country select {
+			margin-left: 10px;
+			background-color: #bcddea;
+			border-radius: 5px;
+			border:2px solid skyblue;
+		}
+		/*БЛОК ДЛЯ ГРУППА*/
+		.group {
+			margin-left: 20px;
+		}
+		.group input {
+			margin-right: 5px;
+			margin-left: 10px;
+			background-color: #bcddea;
+			border-radius: 5px;
+			border:2px solid skyblue;
+		}
+		/*КНОПКА ОТПРАВКИ ФОРМЫ*/
+		.button {
+			margin-top: 20px;
+			margin-left: calc(50% - 140px);
+			margin-bottom: 50px;
+			height: 42px;
+			width: 300px;
+			font-size: 20px;
+			color:#fff;
+			line-height: 30px;
+			border: 2px solid #00a1b3;
+			background: url('./img/button.png')0 0 repeat;
+		}
+		.button:hover  {
+			box-shadow: 0 0 10px aqua;
+		}
+		
+		.window {
+			display: none;
+			position: fixed;
+			width: 500px;
+			height: 350px;
+			top: 30%;
+			left: calc(50% - 250px);
+			background-color: #333;
+			border: 5px solid aqua;
+			border-radius: 20px 20px 0 0; 
+			color: white;
+			font-size: 15px;
+		}
+		
+		.head-window {
+			height: 30px;
+			background-color: aqua;
+			color: black;
+			text-align: center;
+			vertical-align: middle;
+			font-size: 15px;
+			font-weight: bold;
+		}
+
+		.massege-window {
+			height: 100px;
+			margin: 10px;
+			padding: 10px;
+			text-align: center;
+		}
+
+		#input-tour {
+			display: block;
+			margin: 20px auto;
+			text-align: center;
+		}
+
+		#check-insurance {
+			display: block;
+			margin: 20px 20px 20px 30px;
+		}
+
+		.btn {
+			margin: 50px auto;
+			text-align: center;
+		}
+
+		.btn button {
+			display: inline-block;
+			margin: 0 50px;
+			width: 80px;
+			height: 30px;
+			background-color: aqua; 
+			border: 1px solid aqua;
+			border-radius: 5px;
+			font-weight: bold;
+		}
+
+		.btn button:hover {
+			box-shadow: 0 0 7px aqua;
+		}
+
+		.ins-text {
+			display: inline-block;
+			height: 20px;
+			padding-left: 10px;
+			vertical-align: top;
+			line-height: 23px;
+		}
+
+		.window input {
+			background-color: #bcddea;
+			border-radius: 5px;
+			border:2px solid skyblue;
+		}
+
+		@media screen and (max-width: 1200px) {
+			.conteiner {
+				background: url('./img/mountain.jpg') -50px 0 no-repeat;
+				background-size: cover;
+			}
+			.head {
+				width: 900px;
+			}
+			.menu {
+				width: 900px;
+			}
+			.application {
+				width: 900px;
+			}
+		}
+		@media screen and (max-width: 1000px) {
+			.conteiner {
+				background: url('./img/mountain.jpg') -500px 0 no-repeat;
+				background-size: cover;
+			}
+			.head {
+				width: 100%;
+			}
+			.ufo {
+				top:0;
+				left: 300px;
+			}
+			.menu {
+				width: 100%;	
+			}
+			.item {
+				line-height: 35px;
+			}
+			.application {
+				width: 100%;
+			}
+			.box3 {
+				float: right;
+				margin-right: 30%;
+			}
+		}
+		
