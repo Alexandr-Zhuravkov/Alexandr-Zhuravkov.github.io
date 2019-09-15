@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Заявка</title>
 	<link rel="stylesheet" href="reset.css">
 	<link rel="stylesheet" href="style.css">
@@ -31,14 +32,15 @@
 			<div class="ufo"></div>
 		</div>
 		<nav class="menu">
-			<a class="item" href="!#" target="blank">Горы</a>
-			<a class="item" href="!#" target="blank">Равнины</a>
-			<a class="item" href="!#" target="blank">Реки</a>
-			<a class="item" href="!#" target="blank">Моря</a>
-			<a class="item" href="!#" target="blank">Поля</a>
-			<a class="item" href="!#" target="blank">Холмы</a>
-			<a class="item" href="!#" target="blank">Вулканы</a>
-			<a class="item" href="!#" target="blank">НЛО</a>
+			<a class="item menuBtn" href="" target="blank">▼ Меню ▼</a>
+			<a class="item hide" href="" target="blank">Горы</a>
+			<a class="item hide" href="" target="blank">Равнины</a>
+			<a class="item hide" href="" target="blank">Реки</a>
+			<a class="item hide" href="" target="blank">Моря</a>
+			<a class="item hide" href="" target="blank">Поля</a>
+			<a class="item hide" href="" target="blank">Холмы</a>
+			<a class="item hide" href="" target="blank">Вулканы</a>
+			<a class="item hide" href="" target="blank">НЛО</a>
 			<div class="nlo">
 				<div class="ufo1"></div>
 			</div>
@@ -144,7 +146,25 @@
 		var ok = document.querySelector('.ok');
 		var cansel = document.querySelector('.cansel');
 		var regCard = /\b[0-9]{4}\s?[0-9]{4}\s?[0-9]{4}\s?[0-9]{4}\b/g;
+		var menuBtn = document.querySelector('.menuBtn');
+		var itemMenu = document.querySelectorAll('.hide');
 
+		menuBtn.addEventListener('click', function(ev) {
+			ev.preventDefault();
+			showMenu();
+		} );
+		function showMenu () {
+			if (menuBtn.textContent === '▼ Меню ▼') {
+				menuBtn.textContent = '▲ Меню ▲';
+			} else {
+				menuBtn.textContent = '▼ Меню ▼';
+			};
+			for (let item of itemMenu) {
+					item.classList.toggle('show');
+					item.classList.toggle('hide');
+			}
+			
+		};
 		function submit () {
 			var name = document.querySelector('#name');
 			var surname = document.querySelector('#surname');
