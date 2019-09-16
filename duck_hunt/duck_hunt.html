@@ -42,7 +42,12 @@
 
 			var topDuck = parseInt($('.duck').css('top'));
 			var leftDuck = parseInt($('.duck').css('left'));
-			var duck1fly0, duck1fly1, duck1fly2,duck1fly3, duck1fly4,duck1fly5, duck1fly6, duck1fly7, duck1fly8, duck1fly9, duck1fly10, duck2fly0, duck2fly1, duck2fly2,duck2fly3, duck2fly4,duck2fly5, duck2fly6, duck2fly7, duck2fly8, duck2fly9, duck2fly10, duck3fly0, duck3fly1, duck3fly2,duck3fly3, duck3fly4,duck3fly5, duck3fly6, duck3fly7, duck3fly8, duck3fly9, duck3fly10;
+			var duck1fly = [], 
+				duck2fly = [],
+				duck3fly = [];
+			var animateDuck1 =[animateDuck1_0, animateDuck1_1, animateDuck1_2, animateDuck1_3,animateDuck1_4,animateDuck1_5,animateDuck1_6,animateDuck1_7,animateDuck1_8,animateDuck1_9,animateDuck1_10];
+			var animateDuck2 =[animateDuck2_0, animateDuck2_1,animateDuck2_2, animateDuck2_3,animateDuck2_4,animateDuck2_5,animateDuck2_6,animateDuck2_7,animateDuck2_8,animateDuck2_9,animateDuck2_10];
+			var animateDuck3 =[animateDuck3_0, animateDuck3_1,animateDuck3_2, animateDuck3_3,animateDuck3_4,animateDuck3_5,animateDuck3_6,animateDuck3_7,animateDuck3_8,animateDuck3_9,animateDuck3_10];
 			var patrons = 0;
 			var points = 0;
 			var win;//таймер
@@ -65,57 +70,64 @@
 			// ПОШАГОВАЯ АНИМАЦИЯ УТКИ №1
 			function animateDuck1_0() {
 				$('.duck1').addClass('duck_fly');
-				$('.duck1').css({'top': '85vh', 'left':'50vw'}).addClass('duck_fly_right')
+				$('.duck1').css({'top': '85vh', 'left':'50vw'}).addClass('duck_fly_right');
 			};
 			function animateDuck1_1() {
-				var leftRandom = Math.random();
+				leftRandom = Math.random();
 				
-				$('.duck1').css({'top': '10vh', 'left': leftRandom * 90 + 'vw'});
+				$('.duck1').css({'top': '10vh', 'left': leftRandom * 92 + 'vw'});
 			    if(leftRandom > 0.5){
 			    	removeClass1();
-			    	$('.duck1').addClass('duck_fly_top_right')
+			    	$('.duck1').addClass('duck_fly_top_right');
 			    } else {
 			    	removeClass1();
-			    	$('.duck1').addClass('duck_fly_top_left')
-			    }
+			    	$('.duck1').addClass('duck_fly_top_left');
+			    };
+			    
 			};
 			function animateDuck1_2() {
 				removeClass1();
-				$('.duck1').css({'top': '30vh', 'left':'90vw'}).addClass('duck_fly_right')
+				$('.duck1').css({'top': '30vh', 'left':'85vw'}).addClass('duck_fly_right');
 			};
 			function animateDuck1_3() {
 				removeClass1(); 
-				$('.duck1').css({'top': '45vh', 'left': '30vw'}).addClass('duck_fly_left')
+				$('.duck1').css({'top': '45vh', 'left': '30vw'}).addClass('duck_fly_left');
 			};
 			function animateDuck1_4() {
 				removeClass1(); 
-				$('.duck1').css({'top':'10vh', 'left': '5vw'}).addClass('duck_fly_top_left')
+				$('.duck1').css({'top':'10vh', 'left': '5vw'}).addClass('duck_fly_top_left');
 			};
 			function animateDuck1_5() {
 				removeClass1(); 
-				$('.duck1').css({'top': '85vh', 'left':'90vw'}).addClass('duck_fly_right')
+				$('.duck1').css({'top': '85vh', 'left':'90vw'}).addClass('duck_fly_right');
 			};
 			function animateDuck1_6() {
 				removeClass1(); 
-				$('.duck1').css({'top':'80vh', 'left': '10vw'}).addClass('duck_fly_left')
+				$('.duck1').css({'top':'80vh', 'left': '10vw'}).addClass('duck_fly_left');
+				console.log('animateDuck1_6');
 			};
 			function animateDuck1_7() {
 				removeClass1(); 
-				$('.duck1').css({'top':'5vh', 'left': '70vw'}).addClass('duck_fly_top_right')
+				$('.duck1').css({'top':'5vh', 'left': '70vw'}).addClass('duck_fly_top_right');
+				console.log('animateDuck1_7');
 			};
 			function animateDuck1_8() {
 				removeClass1();
-				$('.duck1').css({'top':'10vh', 'left': '5vw'}).addClass('duck_fly_left')
+				$('.duck1').css({'top':'10vh', 'left': '5vw'}).addClass('duck_fly_left');
+				console.log('animateDuck1_8');
 			};
 			function animateDuck1_9() {
 				removeClass1();
-				$('.duck1').css({'top':'60vh', 'left': '85vw'}).addClass('duck_fly_right')
+				$('.duck1').css({'top':'60vh', 'left': '85vw'}).addClass('duck_fly_right');
+				console.log('animateDuck1_9');
 			};
 			function animateDuck1_10() {
 				removeClass1();
 				$('.duck1').css({'top':'-200px', 'left': '45vw'}).addClass('duck_fly_top_left');
+					console.log('animateDuck1_10');
 				setTimeout(function(){
 					$('.duck1').removeClass('duck_fly');
+					console.log('animateDuck1_10remove');
 				},2000);
 			};
 			
@@ -154,7 +166,7 @@
 			};
 			function animateDuck2_6() {
 				removeClass2(); 
-				$('.duck2').css({'top':'80vh', 'left': '0vw'}).addClass('duck_fly_left')
+				$('.duck2').css({'top':'80vh', 'left': '50vw'}).addClass('duck_fly_right')
 			};
 			function animateDuck2_7() {
 				removeClass2(); 
@@ -243,9 +255,7 @@
 							
 				setTimeout(function() {
 					duckDisplay = setInterval( function () {
-						if($('.duck1').css('display')  === 'none'
-							&& $('.duck2').css('display')  === 'none' 
-							&& $('.duck3').css('display')  === 'none') {
+						if($('.duck1').css('display')  === 'none'&& $('.duck2').css('display')  === 'none' && $('.duck3').css('display')  === 'none') {
 							$('.sky').css('background-color', 'hotpink');
 							clearInterval(duckDisplay);
 							clearTimeout(win);
@@ -257,41 +267,27 @@
 						};
 					},1000);
 					$('.duck1').addClass('duck_fly');
-					duck1fly0 = setTimeout (animateDuck1_0, 10);
-					duck1fly1 = setTimeout (animateDuck1_1, 2000);
-					duck1fly2 = setTimeout (animateDuck1_2, 4000);
-					duck1fly3 = setTimeout (animateDuck1_3, 6000);
-					duck1fly4 = setTimeout (animateDuck1_4, 8000);
-					duck1fly5 = setTimeout (animateDuck1_5, 10000);
-					duck1fly6 = setTimeout (animateDuck1_6, 11000);
-					duck1fly7 = setTimeout (animateDuck1_7, 13000);
-					duck1fly8 = setTimeout (animateDuck1_8, 15000);
-					duck1fly9 = setTimeout (animateDuck1_9, 17000);
-					duck1fly10 = setTimeout (animateDuck1_10, 19000);
 
-					duck2fly0 = setTimeout (animateDuck2_0, 10);
-					duck2fly1 = setTimeout (animateDuck2_1, 2000);
-					duck2fly2 = setTimeout (animateDuck2_2, 4000);
-					duck2fly3 = setTimeout (animateDuck2_3, 6000);
-					duck2fly4 = setTimeout (animateDuck2_4, 8000);
-					duck2fly5 = setTimeout (animateDuck2_5, 10000);
-					duck2fly6 = setTimeout (animateDuck2_6, 11000);
-					duck2fly7 = setTimeout (animateDuck2_7, 13000);
-					duck2fly8 = setTimeout (animateDuck2_8, 15000);
-					duck2fly9 = setTimeout (animateDuck2_9, 17000);
-					duck2fly10 = setTimeout (animateDuck2_10, 19000);
+					duck1fly[0] = setTimeout (animateDuck1[0], 10);
 
-					duck3fly0 = setTimeout (animateDuck3_0, 10);
-					duck3fly1 = setTimeout (animateDuck3_1, 2000);
-					duck3fly2 = setTimeout (animateDuck3_2, 4000);
-					duck3fly3 = setTimeout (animateDuck3_3, 6000);
-					duck3fly4 = setTimeout (animateDuck3_4, 8000);
-					duck3fly5 = setTimeout (animateDuck3_5, 10000);
-					duck3fly6 = setTimeout (animateDuck3_6, 11000);
-					duck3fly7 = setTimeout (animateDuck3_7, 13000);
-					duck3fly8 = setTimeout (animateDuck3_8, 15000);
-					duck3fly9 = setTimeout (animateDuck3_9, 17000);
-					duck3fly10 = setTimeout (animateDuck3_10, 19000);
+					for (var i = 1, t = 2000; i < animateDuck1.length; i++) {
+						duck1fly[i] = setTimeout (animateDuck1[i], t);
+						t += 2000;
+					};
+				
+					duck2fly[0] = setTimeout (animateDuck2[0], 10);
+
+					for (var i = 1, t = 2000; i < animateDuck2.length; i++) {
+						duck2fly[i] = setTimeout (animateDuck2[i], t);
+						t += 2000;
+					};
+					
+					duck3fly[0] = setTimeout (animateDuck3[0], 10);
+
+					for (var i = 1, t = 2000; i < animateDuck3.length; i++) {
+						duck3fly[i] = setTimeout (animateDuck3[i], t);
+						t += 2000;
+					};
 
 					$('.sky').on('click',shoot);
 
@@ -341,88 +337,49 @@
 				if (target === shootDuck1) {
 					points = points + 100;
 					$('.points').text(points);
-					clearTimeout(duck1fly1);
-					clearTimeout(duck1fly2);
-					clearTimeout(duck1fly3);
-					clearTimeout(duck1fly4);
-					clearTimeout(duck1fly5);
-					clearTimeout(duck1fly6);
-					clearTimeout(duck1fly7);
-					clearTimeout(duck1fly8);
-					clearTimeout(duck1fly9);
-					clearTimeout(duck1fly10);
+					for (var i = 1; i < 11; i++){
+						clearTimeout(duck1fly[i]);
+					};
 					removeClass1();
 			    	$('.duck1').addClass('duckShoot');
 					$('.duck1').css({'top':'80vh', 'left': leftOnShoot1});
-					duck1fly0 = setTimeout (animateDuck1_0, 1000);
-				 	duck1fly1 = setTimeout (animateDuck1_1, 3000);
-					duck1fly2 = setTimeout (animateDuck1_2, 5000);
-					duck1fly3 = setTimeout (animateDuck1_3, 7000);
-					duck1fly4 = setTimeout (animateDuck1_4, 9000);
-					duck1fly5 = setTimeout (animateDuck1_5, 10000);
-					duck1fly6 = setTimeout (animateDuck1_6, 12000);
-					duck1fly7 = setTimeout (animateDuck1_7, 14000);
-					duck1fly8 = setTimeout (animateDuck1_8, 16000);
-					duck1fly9 = setTimeout (animateDuck1_9, 18000);
-					duck1fly10 = setTimeout (animateDuck1_10, 20000);
+
+					for (var i = 0, t = 1000; i < animateDuck1.length; i++) {
+						duck1fly[i] = setTimeout (animateDuck1[i], t);
+						t += 2000;
+					};
 
 				// ПОПАЛИ ПО УТКЕ №2	
 				} else if (target === shootDuck2){
 					points = points + 100;
 					$('.points').text(points);
-					clearTimeout(duck2fly1);
-					clearTimeout(duck2fly2);
-					clearTimeout(duck2fly3);
-					clearTimeout(duck2fly4);
-					clearTimeout(duck2fly5);
-					clearTimeout(duck2fly6);
-					clearTimeout(duck2fly7);
-					clearTimeout(duck2fly8);
-					clearTimeout(duck2fly9);
-					clearTimeout(duck2fly10);
+					for (var i = 1; i < animateDuck2.length; i++){
+						clearTimeout(duck2fly[i]);
+					};
 					removeClass2();
 			    	$('.duck2').addClass('duckShoot');
 					$('.duck2').css({'top':'80vh', 'left': leftOnShoot2});
-					duck2fly0 = setTimeout (animateDuck2_0, 1000);
-				 	duck2fly1 = setTimeout (animateDuck2_1, 3000);
-					duck2fly2 = setTimeout (animateDuck2_2, 5000);
-					duck2fly3 = setTimeout (animateDuck2_3, 7000);
-					duck2fly4 = setTimeout (animateDuck2_4, 9000);
-					duck2fly5 = setTimeout (animateDuck2_5, 10000);
-					duck2fly6 = setTimeout (animateDuck2_6, 12000);
-					duck2fly7 = setTimeout (animateDuck2_7, 14000);
-					duck2fly8 = setTimeout (animateDuck2_8, 16000);
-					duck2fly9 = setTimeout (animateDuck2_9, 18000);
-					duck2fly10 = setTimeout (animateDuck2_10, 20000);
-				
+
+					for (var i = 0, t = 1000; i < animateDuck2.length; i++) {
+						duck2fly[i] = setTimeout (animateDuck2[i], t);
+						t += 2000;
+					};
+
 				// ПОПАЛИ ПО УТКЕ №3	
 				} else if (target === shootDuck3){
 					points = points + 100;
 					$('.points').text(points);
-					clearTimeout(duck3fly1);
-					clearTimeout(duck3fly2);
-					clearTimeout(duck3fly3);
-					clearTimeout(duck3fly4);
-					clearTimeout(duck3fly5);
-					clearTimeout(duck3fly6);
-					clearTimeout(duck3fly7);
-					clearTimeout(duck3fly8);
-					clearTimeout(duck3fly9);
-					clearTimeout(duck3fly10);
+					for (var i = 1; i < animateDuck3.length; i++){
+						clearTimeout(duck3fly[i]);
+					};
+					
 					removeClass3();
 			    	$('.duck3').addClass('duckShoot');
 					$('.duck3').css({'top':'80vh', 'left': leftOnShoot3});
-					duck3fly0 = setTimeout (animateDuck3_0, 1000);
-				 	duck3fly1 = setTimeout (animateDuck3_1, 3000);
-					duck3fly2 = setTimeout (animateDuck3_2, 5000);
-					duck3fly3 = setTimeout (animateDuck3_3, 7000);
-					duck3fly4 = setTimeout (animateDuck3_4, 9000);
-					duck3fly5 = setTimeout (animateDuck3_5, 10000);
-					duck3fly6 = setTimeout (animateDuck3_6, 12000);
-					duck3fly7 = setTimeout (animateDuck3_7, 14000);
-					duck3fly8 = setTimeout (animateDuck3_8, 16000);
-					duck3fly9 = setTimeout (animateDuck3_9, 18000);
-					duck3fly10 = setTimeout (animateDuck3_10, 20000);
+					for (var i = 0, t = 1000; i < animateDuck3.length; i++) {
+						duck3fly[i] = setTimeout (animateDuck3[i], t);
+						t += 2000;
+					};
 				
 				// НЕ ПОПАЛИ ПО УТКЕ	
 				} else {
@@ -432,39 +389,12 @@
 						$(divPatronI).css({'display' : 'none'});
 					};
 					if ($('.patron10').css('display') === 'none') {
-						clearTimeout(duck1fly0);
-						clearTimeout(duck1fly1);
-						clearTimeout(duck1fly2);
-						clearTimeout(duck1fly3);
-						clearTimeout(duck1fly4);
-						clearTimeout(duck1fly5);
-						clearTimeout(duck1fly6);
-						clearTimeout(duck1fly7);
-						clearTimeout(duck1fly8);
-						clearTimeout(duck1fly9);
-						clearTimeout(duck1fly10);
-						clearTimeout(duck2fly0);
-						clearTimeout(duck2fly1);
-						clearTimeout(duck2fly2);
-						clearTimeout(duck2fly3);
-						clearTimeout(duck2fly4);
-						clearTimeout(duck2fly5);
-						clearTimeout(duck2fly6);
-						clearTimeout(duck2fly7);
-						clearTimeout(duck2fly8);
-						clearTimeout(duck2fly9);
-						clearTimeout(duck2fly10);
-						clearTimeout(duck3fly0);
-						clearTimeout(duck3fly1);
-						clearTimeout(duck3fly2);
-						clearTimeout(duck3fly3);
-						clearTimeout(duck3fly4);
-						clearTimeout(duck3fly5);
-						clearTimeout(duck3fly6);
-						clearTimeout(duck3fly7);
-						clearTimeout(duck3fly8);
-						clearTimeout(duck3fly9);
-						clearTimeout(duck3fly10);
+						for (var i = 0; i < animateDuck1.length; i++){
+							clearTimeout(duck1fly[i]);
+							clearTimeout(duck2fly[i]);
+							clearTimeout(duck3fly[i]);
+						};
+						
 						$('.duck_fly').css('transition', 'left 1.5s linear, top 1.5s linear');
 						animateDuck1_10();
 						animateDuck2_10();
@@ -477,7 +407,7 @@
 							clearInterval(duckDisplay);
 							clearTimeout(win);
 							
-						}, 1500);
+						}, 2000);
 
 						$('.sky').css('background-color', 'hotpink');
 						$('#start').show().text('ПЕРЕИГРАТЬ').click(function (ev) {
