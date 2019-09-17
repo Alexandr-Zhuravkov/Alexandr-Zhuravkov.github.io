@@ -40,222 +40,89 @@
 	<script>
 		$(document).ready(function() {
 
-			var topDuck = parseInt($('.duck').css('top'));
-			var leftDuck = parseInt($('.duck').css('left'));
-			var duck1fly = [], 
-				duck2fly = [],
-				duck3fly = [];
-			var animateDuck1 =[animateDuck1_0, animateDuck1_1, animateDuck1_2, animateDuck1_3,animateDuck1_4,animateDuck1_5,animateDuck1_6,animateDuck1_7,animateDuck1_8,animateDuck1_9,animateDuck1_10];
-			var animateDuck2 =[animateDuck2_0, animateDuck2_1,animateDuck2_2, animateDuck2_3,animateDuck2_4,animateDuck2_5,animateDuck2_6,animateDuck2_7,animateDuck2_8,animateDuck2_9,animateDuck2_10];
-			var animateDuck3 =[animateDuck3_0, animateDuck3_1,animateDuck3_2, animateDuck3_3,animateDuck3_4,animateDuck3_5,animateDuck3_6,animateDuck3_7,animateDuck3_8,animateDuck3_9,animateDuck3_10];
-			var patrons = 0;
-			var points = 0;
-			var win;//таймер
-			var duckDisplay;//таймер
-			var timeInt;
-			var time = 60;
+			var patrons = 0;//счетчик патронов
+			var points = 0;//счетчик очков
+			var win;//таймАут конец игры
+			var timeInt;//таймер для отсчета времени
+			var time = 60;// счетчик время игры в сек.
+			var winTime = Number(time + '000')// время длительности игры в млсек.
+			var duckDisplay;//таймИнтервал для проверки наличия уток
 			var audio  = document.getElementById('audio');
 
-			//УДАЛЕНИЕ КЛАССОВ УТОК ПРИ АНИМАЦИИ
-			function removeClass1(){
-				$('.duck1').removeClass('duckShoot duck_fly_left duck_fly_top_right duck_fly_top_left duck_fly_right');
-			};
-			function removeClass2(){
-				$('.duck2').removeClass('duckShoot duck_fly_left duck_fly_top_right duck_fly_top_left duck_fly_right');
-			};
-			function removeClass3(){
-				$('.duck3').removeClass('duckShoot duck_fly_left duck_fly_top_right duck_fly_top_left duck_fly_right');
+			var ducksObj = {
+				duck1: {
+					name:$('.duck1'),
+					coordinate_y_x: [
+					[85, 10, 30, 45, 10, 85, 80, 5, 10, 60, -20],
+					[50, 10, 85, 30, 5, 85, 10, 70, 5, 85, 45]
+					] ,
+					duckFlyTimeOut: []
+				},	
+				duck2: {
+					name: $('.duck2'),
+					coordinate_y_x: [
+					[85, 30, 20, 5, 50, 0, 80, 15, 50, 15, -20],
+					[50, 85, 5, 60, 80, 0, 50, 70, 5, 55, 85]
+					],
+					duckFlyTimeOut: []
+				},
+				duck3: {
+					name: $('.duck3'),
+					coordinate_y_x: [
+					[85, 0, 50, 50, 40, 0, 60, 40, 5, 55, 10],
+					[50, 70, 1, 80, 30, 80, 0, 30, 75, 55, -20]
+					],
+					duckFlyTimeOut: []
+				}
 			};
 
-			// ПОШАГОВАЯ АНИМАЦИЯ УТКИ №1
-			function animateDuck1_0() {
-				$('.duck1').addClass('duck_fly');
-				$('.duck1').css({'top': '85vh', 'left':'50vw'}).addClass('duck_fly_right');
+			var ducksArr = [ducksObj.duck1, ducksObj.duck2, ducksObj.duck3];
+
+			function removeClass(duck_number){
+				duck_number.removeClass('duckShoot duck_fly_left duck_fly_top_right duck_fly_top_left duck_fly_right');
 			};
-			function animateDuck1_1() {
-				leftRandom = Math.random();
-				
-				$('.duck1').css({'top': '10vh', 'left': leftRandom * 92 + 'vw'});
-			    if(leftRandom > 0.5){
-			    	removeClass1();
-			    	$('.duck1').addClass('duck_fly_top_right');
-			    } else {
-			    	removeClass1();
-			    	$('.duck1').addClass('duck_fly_top_left');
-			    };
-			    
+
+			function animateDuck(duck_number, y, x, beforY, beforX,t) {
+				duck_number.addClass('duck_fly');
+				return setTimeout ( function(){
+					removeClass(duck_number);
+					var direction = 'duck_fly';
+					if (y < beforY){
+						direction = 'duck_fly_top';
+					};
+					if (x > beforX){
+						direction = direction + '_right';
+					} else {
+						direction = direction + '_left';
+					};
+					duck_number.css({'top': y + 'vh', 'left': x + 'vw'}).addClass(direction);
+				}, t);
 			};
-			function animateDuck1_2() {
-				removeClass1();
-				$('.duck1').css({'top': '30vh', 'left':'85vw'}).addClass('duck_fly_right');
-			};
-			function animateDuck1_3() {
-				removeClass1(); 
-				$('.duck1').css({'top': '45vh', 'left': '30vw'}).addClass('duck_fly_left');
-			};
-			function animateDuck1_4() {
-				removeClass1(); 
-				$('.duck1').css({'top':'10vh', 'left': '5vw'}).addClass('duck_fly_top_left');
-			};
-			function animateDuck1_5() {
-				removeClass1(); 
-				$('.duck1').css({'top': '85vh', 'left':'90vw'}).addClass('duck_fly_right');
-			};
-			function animateDuck1_6() {
-				removeClass1(); 
-				$('.duck1').css({'top':'80vh', 'left': '10vw'}).addClass('duck_fly_left');
-				console.log('animateDuck1_6');
-			};
-			function animateDuck1_7() {
-				removeClass1(); 
-				$('.duck1').css({'top':'5vh', 'left': '70vw'}).addClass('duck_fly_top_right');
-				console.log('animateDuck1_7');
-			};
-			function animateDuck1_8() {
-				removeClass1();
-				$('.duck1').css({'top':'10vh', 'left': '5vw'}).addClass('duck_fly_left');
-				console.log('animateDuck1_8');
-			};
-			function animateDuck1_9() {
-				removeClass1();
-				$('.duck1').css({'top':'60vh', 'left': '85vw'}).addClass('duck_fly_right');
-				console.log('animateDuck1_9');
-			};
-			function animateDuck1_10() {
-				removeClass1();
-				$('.duck1').css({'top':'-200px', 'left': '45vw'}).addClass('duck_fly_top_left');
-					console.log('animateDuck1_10');
-				setTimeout(function(){
-					$('.duck1').removeClass('duck_fly');
-					console.log('animateDuck1_10remove');
-				},2000);
+
+			function ducksHide (){
+				for (var duckHide of ducksArr) {
+					if (parseInt(duckHide.name.css('top')) < 0 || parseInt(duckHide.name.css('left')) < 0) {
+						duckHide.name.removeClass('duck_fly');
+					};
+				};
 			};
 			
-			// ПОШАГОВАЯ АНИМАЦИЯ УТКИ №2
-			function animateDuck2_0() {
-				$('.duck2').addClass('duck_fly');
-				$('.duck2').css({'top': '85vh', 'left':'50vw'}).addClass('duck_fly_right')
-			};
-			function animateDuck2_1() {
-				leftRandom = Math.random();
-				
-				$('.duck2').css({'top': '30vh', 'left': leftRandom * 92 + 'vw'});
-			    if(leftRandom > 0.5){
-			    	removeClass2();
-			    	$('.duck2').addClass('duck_fly_top_right')
-			    } else {
-			    	removeClass2();
-			    	$('.duck2').addClass('duck_fly_top_left')
-			    }
-			};
-			function animateDuck2_2() {
-				removeClass2();
-				$('.duck2').css({'top': '20vh', 'left':'5vw'}).addClass('duck_fly_top_left')
-			};
-			function animateDuck2_3() {
-				removeClass2(); 
-				$('.duck2').css({'top': '5vh', 'left': '60vw'}).addClass('duck_fly_top_right')
-			};
-			function animateDuck2_4() {
-				removeClass2(); 
-				$('.duck2').css({'top':'50vh', 'left': '80vw'}).addClass('duck_fly_right')
-			};
-			function animateDuck2_5() {
-				removeClass2(); 
-				$('.duck2').css({'top': '0vh', 'left':'0vw'}).addClass('duck_fly_top_left')
-			};
-			function animateDuck2_6() {
-				removeClass2(); 
-				$('.duck2').css({'top':'80vh', 'left': '50vw'}).addClass('duck_fly_right')
-			};
-			function animateDuck2_7() {
-				removeClass2(); 
-				$('.duck2').css({'top':'15vh', 'left': '70vw'}).addClass('duck_fly_right')
-			};
-			function animateDuck2_8() {
-				removeClass2();
-				$('.duck2').css({'top':'50vh', 'left': '5vw'}).addClass('duck_fly_left')
-			};
-			function animateDuck2_9() {
-				removeClass2();
-				$('.duck2').css({'top':'15vh', 'left': '55vw'}).addClass('duck_fly_top_right')
-			};
-			function animateDuck2_10() {
-				removeClass2();
-				$('.duck2').css({'top':'-200px', 'left': '85vw'}).addClass('duck_fly_top_right');
-				setTimeout(function(){
-					$('.duck2').removeClass('duck_fly');
-				},2000);
-			};
-
-			// ПОШАГОВАЯ АНИМАЦИЯ УТКИ №3
-			function animateDuck3_0() {
-				$('.duck3').addClass('duck_fly');
-				$('.duck3').css({'top': '85vh', 'left':'50vw'}).addClass('duck_fly_right')
-			};
-			function animateDuck3_1() {
-				leftRandom = Math.random();
-				
-				$('.duck3').css({'top': '0vh', 'left': leftRandom * 92 + 'vw'});
-			    if(leftRandom > 0.5){
-			    	removeClass3();
-			    	$('.duck3').addClass('duck_fly_top_right')
-			    } else {
-			    	removeClass3();
-			    	$('.duck3').addClass('duck_fly_top_left')
-			    }
-			};
-			function animateDuck3_2() {
-				removeClass3();
-				$('.duck3').css({'top': '50vh', 'left':'1vw'}).addClass('duck_fly_left')
-			};
-			function animateDuck3_3() {
-				removeClass3(); 
-				$('.duck3').css({'top': '50vh', 'left': '80vw'}).addClass('duck_fly_right')
-			};
-			function animateDuck3_4() {
-				removeClass3(); 
-				$('.duck3').css({'top':'40vh', 'left': '30vw'}).addClass('duck_fly_left')
-			};
-			function animateDuck3_5() {
-				removeClass3(); 
-				$('.duck3').css({'top': '0vh', 'left':'80vw'}).addClass('duck_fly_top_right')
-			};
-			function animateDuck3_6() {
-				removeClass3(); 
-				$('.duck3').css({'top':'60vh', 'left': '0vw'}).addClass('duck_fly_left')
-			};
-			function animateDuck3_7() {
-				removeClass3(); 
-				$('.duck3').css({'top':'40vh', 'left': '30vw'}).addClass('duck_fly_right')
-			};
-			function animateDuck3_8() {
-				removeClass3();
-				$('.duck3').css({'top':'5vh', 'left': '75vw'}).addClass('duck_fly_top_right')
-			};
-			function animateDuck3_9() {
-				removeClass3();
-				$('.duck3').css({'top':'55vh', 'left': '55vw'}).addClass('duck_fly_left')
-			};
-			function animateDuck3_10() {
-				removeClass3();
-				$('.duck3').css({'top':'10vh', 'left': '-200px'}).addClass('duck_fly_left');
-				setTimeout(function(){
-					$('.duck3').removeClass('duck_fly');
-				},2000);
-			};
-
 			//ФУНКЦИЯ НАЧАЛО ИГРЫ
 			function startGame () {
-				
 				$('.dog').addClass('dog_walk');
+
+				var timeDogWalk = Number(parseInt($('.dog').css('transition-duration')) + '000');
+
 				setTimeout(function(){
 					$('.dog').removeClass('dog_walk').addClass('dog_jump');
-				}, 6000);
-							
+				}, timeDogWalk);
+
 				setTimeout(function() {
 					duckDisplay = setInterval( function () {
-						if($('.duck1').css('display')  === 'none'&& $('.duck2').css('display')  === 'none' && $('.duck3').css('display')  === 'none') {
+						ducksHide ();
+						if( $('.duck1').css('display')  === 'none'
+							&& $('.duck2').css('display')  === 'none' 
+							&& $('.duck3').css('display')  === 'none') {
 							$('.sky').css('background-color', 'hotpink');
 							clearInterval(duckDisplay);
 							clearTimeout(win);
@@ -264,31 +131,16 @@
 							$('#start').show().text('ПЕРЕИГРАТЬ').click(function (ev) {
 								location.reload();
 							})
+						}
+					},2000);
+
+					for (var duck of ducksArr) {
+						for(var i = 0, t = 0; i < ducksArr[0].coordinate_y_x[0].length; i++) {
+								duck.duckFlyTimeOut[i] = animateDuck(duck.name, duck.coordinate_y_x[0][i], duck.coordinate_y_x[1][i], duck.coordinate_y_x[0][i-1], duck.coordinate_y_x[1][i-1], t);
+								t += 2000;
 						};
-					},1000);
-					$('.duck1').addClass('duck_fly');
-
-					duck1fly[0] = setTimeout (animateDuck1[0], 10);
-
-					for (var i = 1, t = 2000; i < animateDuck1.length; i++) {
-						duck1fly[i] = setTimeout (animateDuck1[i], t);
-						t += 2000;
-					};
-				
-					duck2fly[0] = setTimeout (animateDuck2[0], 10);
-
-					for (var i = 1, t = 2000; i < animateDuck2.length; i++) {
-						duck2fly[i] = setTimeout (animateDuck2[i], t);
-						t += 2000;
 					};
 					
-					duck3fly[0] = setTimeout (animateDuck3[0], 10);
-
-					for (var i = 1, t = 2000; i < animateDuck3.length; i++) {
-						duck3fly[i] = setTimeout (animateDuck3[i], t);
-						t += 2000;
-					};
-
 					$('.sky').on('click',shoot);
 
 					timeInt = setInterval( function() {
@@ -301,7 +153,8 @@
 							clearInterval(timeInt);
 						};
 					},1000)
-				}, 6000);
+				},timeDogWalk);
+
 				win = setTimeout( function(){
 					$('.sky').hide();
 					clearInterval(duckDisplay);
@@ -309,18 +162,19 @@
 					$('#start').show().text('ПЕРЕИГРАТЬ').click(function (ev) {
 						location.reload();
 					}
-				)}, 66000);
+				)}, winTime + timeDogWalk);
 			};
 
 			$('#start').click(function (ev) {
 				$(this).fadeOut();
 				startGame();
 			});
-	    	//ФУНКЦИЯ СРАБАТЫВАЕТ ПРИ ВЫСТРЕЛЕ
+
+			//ФУНКЦИЯ СРАБАТЫВАЕТ ПРИ ВЫСТРЕЛЕ
 			function shoot (ev) {
 				audio.pause();
 				audio.currentTime = 0;
-				audio.play();				
+				audio.play();
 				var target = $(ev.target).attr('class');
 				var shootDuck1 = $('.duck1').attr('class');
 				var shootDuck2 = $('.duck2').attr('class');
@@ -328,24 +182,30 @@
 				var leftOnShoot1 = $('.duck1').css('left');
 				var leftOnShoot2 = $('.duck2').css('left');
 				var leftOnShoot3 = $('.duck3').css('left');
+
 				$('.wrapper').css('background-color', 'hotpink');
-					setTimeout(function(){
-						$('.wrapper').css('background-color', '#3cbcfc');
-					},100);
-				
+
+				setTimeout(function(){
+					$('.wrapper').css('background-color', '#3cbcfc');
+				},100);
+
 				// ПОПАЛИ ПО УТКЕ №1
 				if (target === shootDuck1) {
 					points = points + 100;
 					$('.points').text(points);
-					for (var i = 1; i < 11; i++){
-						clearTimeout(duck1fly[i]);
-					};
-					removeClass1();
-			    	$('.duck1').addClass('duckShoot');
-					$('.duck1').css({'top':'80vh', 'left': leftOnShoot1});
 
-					for (var i = 0, t = 1000; i < animateDuck1.length; i++) {
-						duck1fly[i] = setTimeout (animateDuck1[i], t);
+					for (var timeOut of ducksArr[0].duckFlyTimeOut) {
+						clearTimeout(timeOut);
+					};
+
+					removeClass(ducksArr[0].name);
+
+					ducksArr[0].name.addClass('duckShoot');
+
+					ducksArr[0].name.css({'top':'80vh', 'left': leftOnShoot1});
+
+					for(var i = 0, t = 2000; i < ducksArr[0].coordinate_y_x[0].length; i++) {
+						ducksArr[0].duckFlyTimeOut[i] = animateDuck(ducksArr[0].name, ducksArr[0].coordinate_y_x[0][i], ducksArr[0].coordinate_y_x[1][i], ducksArr[0].coordinate_y_x[0][i-1], ducksArr[0].coordinate_y_x[1][i-1], t);
 						t += 2000;
 					};
 
@@ -353,15 +213,19 @@
 				} else if (target === shootDuck2){
 					points = points + 100;
 					$('.points').text(points);
-					for (var i = 1; i < animateDuck2.length; i++){
-						clearTimeout(duck2fly[i]);
-					};
-					removeClass2();
-			    	$('.duck2').addClass('duckShoot');
-					$('.duck2').css({'top':'80vh', 'left': leftOnShoot2});
 
-					for (var i = 0, t = 1000; i < animateDuck2.length; i++) {
-						duck2fly[i] = setTimeout (animateDuck2[i], t);
+					for (var timeOut of ducksArr[1].duckFlyTimeOut) {
+						clearTimeout(timeOut);
+					};
+
+					removeClass(ducksArr[1].name);
+
+					ducksArr[1].name.addClass('duckShoot');
+
+					ducksArr[1].name.css({'top':'80vh', 'left': leftOnShoot2});
+
+					for(var i = 0, t = 2000; i < ducksArr[1].coordinate_y_x[0].length; i++) {
+						ducksArr[1].duckFlyTimeOut[i] = animateDuck(ducksArr[1].name, ducksArr[1].coordinate_y_x[0][i], ducksArr[1].coordinate_y_x[1][i], ducksArr[1].coordinate_y_x[0][i-1], ducksArr[1].coordinate_y_x[1][i-1], t);
 						t += 2000;
 					};
 
@@ -369,54 +233,61 @@
 				} else if (target === shootDuck3){
 					points = points + 100;
 					$('.points').text(points);
-					for (var i = 1; i < animateDuck3.length; i++){
-						clearTimeout(duck3fly[i]);
+
+					for (var timeOut of ducksArr[2].duckFlyTimeOut) {
+						clearTimeout(timeOut);
 					};
-					
-					removeClass3();
-			    	$('.duck3').addClass('duckShoot');
-					$('.duck3').css({'top':'80vh', 'left': leftOnShoot3});
-					for (var i = 0, t = 1000; i < animateDuck3.length; i++) {
-						duck3fly[i] = setTimeout (animateDuck3[i], t);
+
+					removeClass(ducksArr[2].name);
+
+					ducksArr[2].name.addClass('duckShoot');
+
+					ducksArr[2].name.css({'top':'80vh', 'left': leftOnShoot3});
+
+					for(var i = 0, t = 2000; i < ducksArr[2].coordinate_y_x[0].length; i++) {
+						ducksArr[2].duckFlyTimeOut[i] = animateDuck(ducksArr[2].name, ducksArr[2].coordinate_y_x[0][i], ducksArr[2].coordinate_y_x[1][i], ducksArr[2].coordinate_y_x[0][i-1], ducksArr[2].coordinate_y_x[1][i-1], t);
 						t += 2000;
 					};
-				
-				// НЕ ПОПАЛИ ПО УТКЕ	
+
+				//НЕ ПОПАЛИ
 				} else {
 					patrons = patrons + 1;
+
 					if (patrons <= 10) {
 						var divPatronI = '.patron' + patrons;
 						$(divPatronI).css({'display' : 'none'});
 					};
+
 					if ($('.patron10').css('display') === 'none') {
-						for (var i = 0; i < animateDuck1.length; i++){
-							clearTimeout(duck1fly[i]);
-							clearTimeout(duck2fly[i]);
-							clearTimeout(duck3fly[i]);
+						for (var duck of ducksArr) {
+
+							for (var timeOut of duck.duckFlyTimeOut) {
+								clearTimeout(timeOut);
+							};
+
+							animateDuck(duck.name, duck.coordinate_y_x[0][10], duck.coordinate_y_x[1][10], duck.coordinate_y_x[0][9], duck.coordinate_y_x[1][9],0);
 						};
-						
-						$('.duck_fly').css('transition', 'left 1.5s linear, top 1.5s linear');
-						animateDuck1_10();
-						animateDuck2_10();
-						animateDuck3_10();
-						clearInterval(timeInt)
+
+						clearInterval(timeInt);
+
 						$('.window').text('Патроны закончились!!!    ОЧКОВ:  ' + points);
+
 						setTimeout( function() {
 							$('.sky').css('display', 'none');
 							$('.wrapper').css('background-color', 'hotpink');
 							clearInterval(duckDisplay);
-							clearTimeout(win);
-							
-						}, 2000);
+							clearTimeout(win);							
+						}, 1500);
 
 						$('.sky').css('background-color', 'hotpink');
 						$('#start').show().text('ПЕРЕИГРАТЬ').click(function (ev) {
-								location.reload();
-							});
-					}
+							location.reload();
+						});
+
+					};
 				}     
-			}
-		})
+			};
+		});
 	</script>
 </body>
 </html>
