@@ -4,398 +4,14 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Журавков Александр</title>
-	<link rel="stylesheet" href="reset.css">
-	<link rel="shortcut icon" href="img/favicon.ico">
+	<link rel="stylesheet" href="portfolio/css/reset.css">
+	<link rel="stylesheet" href="portfolio/css/style.css">
+	<link rel="shortcut icon" href="portfolio/img/favicon.ico">
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
 	<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 	<style>
-		body {
-			font-family: 'Arial' sans-serif;
-			background-color: #c7ced7;
-		}
-		.fixed_offset {
-			height: 50px;
-		}
-		.header	{
-			position: fixed;
-			top:0;
-			left:0;
-			width: 100%;
-			height: 50px;
-			background: url('img/header-background.jpg') 0 0 no-repeat;
-			background-size: cover;
-			box-shadow: 0 0 10px black;
-			box-sizing: border-box;
-
-		}
-		.name {
-			font-size: 25px;
-			margin: 5px 0px 5px 50px;
-			float: left;
-		}
-		.icon {
-			display: none;
-		}
-		.nav-menu{
-			position: static;
-			float: right;
-			margin-right: 5px;
-		}
-		.menu {
-			width: 500px;
-			box-sizing: border-box;
-		}
-		.list, .menu li{
-			display: inline-block;
-		}
-		.list {
-			padding: 0px 10px;
-			height: 50px;
-			line-height: 50px;
-			font-size: 17px;
-			text-align: center;
-			text-decoration: none;
-			color: black;
-			font-weight: bold;
-
-		}
-		.list:hover{
-			background-color: rgba(67,108,170,0.3);
-		}
-		.list:active{
-			background-color: rgba(67,108,170,0.9);
-		}
-		.main {
-			width:850px;
-			margin: 0 auto;
-		}
-		.avatar {
-			display: inline-block;
-			width: 300px;
-			height: 350px;
-			margin: 50px;
-			border-radius: 20%;
-			background: url("img/IMG_8948.jpg") -30px 0 no-repeat;
-			box-shadow: 0px 0px 10px black;
-			background-size: cover;
-
-		}
-		h1 {
-			font-size: 30px;
-			text-align: center;
-			font-weight: bold;
-			letter-spacing: 1px;
-		}
-		.about {
-			display: inline-block;
-			width: 400px;
-			margin:100px auto;
-			vertical-align: top;
-		}
-		.about p {
-			margin:5px 0 0 55px;
-			font-size: 20px;
-			text-align: left;
-			letter-spacing: 1px;
-		}
-		.bold {
-			font-style: italic;
-			font-weight: bold;
-			letter-spacing: 0px;			
-		}
-		.resume, .skils, .portfolio, .contacts {
-			
-			margin: 50px 20px;
-			padding: 20px 30px;
-			background-color: #efefef; 
-			border: 3px solid #eee8dd;
-			border-radius: 20px;
-		}
-		h2 {
-			margin-bottom: 10px;
-			font-size: 25px;
-			text-align: center;
-			font-weight: bold;
-			letter-spacing: 1px;
-		}
-		h3 {
-			font-size: 20px;
-			font-style: italic;
-			font-weight: bold;
-			letter-spacing: 0px;
-		}
-		hr {
-    			border: 0;
-    			height: 1px;
-    			background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
-    			background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
-    			background-image: -ms-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
-    			background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
-    			background-image: linear-gradient(left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
-    		}
-    		.resume p {
-    			display: inline-block;
-    			vertical-align: middle;
-    			margin:10px 10px;
-			font-size: 17px;
-			text-align: left;
-			letter-spacing: 1px;
-    		}
-
-		.in-resume p:first-child {
-    			width: 22%;
-    		}
-
-		.in-resume p:last-child {
-    			width: 70%;
-    			padding-left: 10px;
-		}
-		.sertificat {
-			display: inline-block;
-			margin: 5px 40px;
-			vertical-align: middle;
-		}
-		.resume:hover, .skils:hover, .portfolio:hover, .contacts:hover {
-			box-shadow: 2px 2px 20px aqua;
-		}
-		.skils ul {
-			margin: 5px 20px;
-		}
-		.skils li {
-			padding: 5px;
-			font-size: 17px;
-			text-align: left;
-			letter-spacing: 1px;
-		}
-		.skils p {
-    			margin:10px 20px;
-			font-size: 17px;
-			text-align: left;
-			letter-spacing: 1px;
-    		}
-    		.wrap-portfolio-list, .wrap-contacts-list {
-			display: flex;
-			flex-flow: row wrap;
-			justify-content: space-around;
-			align-items: stretch;
-    		}
-    		.portfolio-list{
-    			width: 300px;
-    			height: 300px;
-    			margin: 20px; 		
-    		}
-    		.wrap-img {
-    			width: 300px;
-    			height: 250px;
-    			border-radius: 30px;
-    			border: 1px solid black;
-    			box-shadow: 0 0 15px black;
-    			overflow: hidden;
-    		}
-    		.portfolio-list img {
-    			width: 350px;
-    			transition: width 0.5s linear;
-    		}
-    		.portfolio-list a {
-    			text-decoration: none;
-    		}
-    		.portfolio-list p {
-    			margin:5px auto;
-			font-size: 16px;
-			text-align: center;
-			font-weight: bold;
-			color:#2a2a2a;
-    		}
-    		.portfolio-link:hover .portfolio-img {
-    			width: 400px;
-    			transition: width 0.5s linear;
-    		}
-    		.portfolio-list:hover {
-    			border-bottom: 3px solid blue;
-    			margin: 20px 20px 17px 20px;
-    		}
-    		.wrap-img:hover {
-			box-shadow: 0 0 20px blue;
-    		}
-    	
-    		.contacts-list {
-    			margin: 10px 20px;
-    			text-align: center;
-    		}
-    		.log {
-    			margin: 5px auto;
-    			width: 50px;
-    			height: 50px;
-    			box-shadow: 0 0 10px blue;
-    		}
-    		.phone .log {
-			background: url("img/phone.png") 0 0 no-repeat rgba(0,0,0,0);
-			border-radius: 50%;
-			background-size: contain;
-    		}
-    		.email .log {
-			background: url("img/mail.jpg") 0 0 no-repeat rgba(0,0,0,0);
-			border-radius: 50%;
-			background-size: contain;
-    		}
-    		.skype .log {
-			background: url("img/skype.png") 0 0 no-repeat rgba(0,0,0,0);
-			border-radius: 50%;
-			background-size: cover;
-    		}
-    		.contacts p {
-    			margin:10px 0;
-			font-size: 16px;
-    		}
-    		.footer	{
-			width: 100%;
-			height: 50px;
-			margin-top: 100px;
-			background: url('img/header-background.jpg') 0 0 no-repeat;
-			background-size: cover;
-			box-shadow: 0 0 10px black;
-			box-sizing: border-box;
-
-		}
-		.footer p {
-			line-height: 50px;
-			font-size: 15px;
-			font-weight: bold;
-			text-align: center;
-		}
-
-		@media screen and (max-width: 900px) {
-			h1 {
-				display: block;
-				font-size: 25px;
-				width: auto;
-				text-align: center;
-				font-weight: bold;
-				letter-spacing: 0px;
-			}
-			.main {
-				width:auto;
-				margin: 0 auto;
-			}			
-			.icon {
-				display: block;
-				float: right;
-				width: 40px;
-				height: 40px;
-				margin:5px 30px 5px 0;
-				padding: 5px 0px;
-				border-width: 0;
-				border-radius: 5px;
-				box-sizing: border-box;
-				background: none;
-				overflow: hidden;
-			}
-			.icon-line {
-				float: right;
-				width: 30px;
-				height: 6px;
-				margin: 2px 5px;
-				background-color: black;
-			}
-			.icon:hover {
-				background-color: #5794ca;
-			}
-			.icon:hover .line1{
-				width: 30px;
-			}
-			.icon:hover .line2{
-				width: 25px;
-				transition: width 0.1s linear;
-			}
-			.icon:hover .line3{
-				width: 20px;
-				transition: width 0.3s linear;
-			}
-			
-			.icon:active {
-				box-shadow: 0 0 5px black;
-			}
-			.name {
-				font-size: 25px;
-				margin: 5px 0px 5px 30px;
-				float: left;
-			}
-			
-			.nav-menu{
-				position: absolute;
-				margin-right: 0px;
-				top: -420px;
-				right: 0px;
-				transition: top 0.3s linear;
-			}
-			.nav-menu-show{
-				position:absolute;
-				top:0;
-				right: 0;
-				transition: top 0.3s linear;
-			}
-			.menu {
-				height: 400px;
-				width: 300px;
-				background: url('img/header-background.jpg')-1000px 0 no-repeat;
-				background-size: cover;
-				border-radius:0 0 0 10px;
-				box-shadow: 0 0 10px black;
-				box-sizing: border-box;
-			}
-			.list, .menu li{
-				display: block;
-			}
-			.list {
-				height: 100px;
-				line-height: 100px;
-				font-size: 16px;
-				letter-spacing: 1px;
-				text-align: center;
-				text-decoration: none;
-				color: black;
-				font-weight: bold;
-
-			}
-			.list:hover{
-				background-color: rgba(67,108,170,0.3);
-			}
-			.list:active{
-				background-color: rgba(67,108,170,0.9);
-			}
-			.avatar {
-				display: block;
-				width: 350px;
-				margin: 50px auto;
-				border-radius: 50%;
-				background: url("img/IMG_8948.jpg") 0 0 no-repeat;
-				box-shadow: 0px 0px 10px black;
-				background-size: cover;
-
-			}
-			.about {
-				display: block;
-				margin:10px auto;
-				width: 340px;
-
-			}
-			.about p{
-				margin-left:50px;
-				font-size: 18px;
-				
-			}
-			.in-resume p:first-child {
-    				width: 40%;
-    			}
-
-			.in-resume p:last-child {
-    				width: 90%;
-    				padding-left: 20px;
-			}
-
-		}
-
+		
 	</style>
 </head>
 <body>
@@ -452,8 +68,8 @@
 			<div class="in-resume">
 				<p class="bold">Сертификат:</p>
 				<div class="sertificat">
-					<a href="img/sertificat.jpg" data-fancybox="sertificat" data-caption="Сертификат">
-  					<img src="img/sertificat-mini.jpg" alt="" />
+					<a href="portfolio/img/sertificat.jpg" data-fancybox="sertificat" data-caption="Сертификат">
+  					<img src="portfolio/img/sertificat-mini.jpg" alt="" />
  					</a>
  				</div>
 				
@@ -506,19 +122,19 @@
 			<div class="wrap-portfolio-list">
 				<div class="portfolio-list">
 					<a href="parnas/parnas.html" class="portfolio-link" target="_blank">
-						<div class="wrap-img"><img src="img/tholos_delphi.jpg" alt="" class="portfolio-img"></div>
+						<div class="wrap-img"><img src="portfolio/img/tholos_delphi.jpg" alt="" class="portfolio-img"></div>
 						<p>Заявка на скалолазание "Гора Парнас"</p>
 					</a>
 				</div>
 				<div class="portfolio-list">
 					<a href="football/football.html" class="portfolio-link" target="_blank">
-						<div class="wrap-img"><img src="img/football.jpg" alt="" class="portfolio-img"></div>
+						<div class="wrap-img"><img src="portfolio/img/football.jpg" alt="" class="portfolio-img"></div>
 						<p>Игра "Футбол"</p>
 					</a>
 				</div>
 				<div class="portfolio-list">
 					<a href="duck_hunt/duck_hunt.html" class="portfolio-link" target="_blank">
-						<div class="wrap-img"><img src="img/duck_hunt.jpg" alt="" class="portfolio-img"></div>
+						<div class="wrap-img"><img src="portfolio/img/duck_hunt.jpg" alt="" class="portfolio-img"></div>
 						<p>Игра "Охота на уток"</p>
 					</a>
 				</div>
@@ -548,54 +164,6 @@
 	<footer class="footer">
 		<p>Copyright © 2019 - Александр Журавков</p>
 	</footer>
-	<script>
-	$(document).ready(function() {
-		$("[data-fancybox]").fancybox({
-   			loop: false,
-   			keyboard: true,
-   			arrows: true,
-   			toolbar: true,
-   			buttons: [
-          		'slideShow',
-          		'fullScreen',
-          		'thumbs',
-          		'share',
-          		'download',
-         	 	'zoom',
-          		'close'
-      		],
-      		touch: {
-          		vertical: true, 
-          		momentum: true
-      		},
-   
-  		});
-		var $page = $('html, body');
-		$('a[href*="#"]').click(function() {
-    		$page.animate({
-        		scrollTop: $($.attr(this, 'href')).offset().top
-    		}, 400);
-    		return false;
-		});
-		var btnIcon = document.querySelector('.icon');
-		var navMenu = document.querySelector('.nav-menu');
-		var listMenu = document.querySelectorAll('.list');
-		var V = 1;
-		function showMenu () {
-			navMenu.classList.toggle('nav-menu-show');
-		};
-		function hideMenu () {
-			navMenu.classList.remove('nav-menu-show');
-		};
-
-		btnIcon.addEventListener('click', showMenu );
-		navMenu.addEventListener('mouseleave', hideMenu);
-		for(let li of listMenu) {
-			li.addEventListener('click',showMenu );
-		};
-
-	})
-		
-	</script>
+	<script src="portfolio/js/portfolio.js"></script>
 </body>
 </html>

@@ -15,7 +15,7 @@ h1,h2,h3,h4,h5,h6,ul,li {
 	padding: 0;
 	width: 100vw;
 	height: 100vh;
-	background: url(img/windows.jpg) 0 0 no-repeat;
+	background: url(../img/windows.jpg) 0 0 no-repeat;
    	background-size: cover;
 }
 .desktop {
@@ -104,7 +104,7 @@ h1,h2,h3,h4,h5,h6,ul,li {
 	padding-bottom: 20px;
 	height: 64px;
 	width: 64px;
-	background: url(img/icon.png) 0 0 no-repeat;
+	background: url(../img/icon.png) 0 0 no-repeat;
 	-webkit-background-size: 64px 64px;
 			background-size: 64px 64px;
 	cursor: pointer;		
@@ -148,7 +148,7 @@ h1,h2,h3,h4,h5,h6,ul,li {
 	height: 40px;
 	width: 40px;
 	border-radius:50%;
-	background: url(img/pusk1.png) 0px 0px no-repeat;
+	background: url(../img/pusk1.png) 0px 0px no-repeat;
 	background-size: cover;
 	box-sizing: border-box;
 	transition: all 0.2s linear 0s;
@@ -165,7 +165,7 @@ h1,h2,h3,h4,h5,h6,ul,li {
 	padding: 0;
 	height: 100%;
 	width: 60px;
-	background: url(img/icon1.png) 7px 0px no-repeat;
+	background: url(../img/icon1.png) 7px 0px no-repeat;
 	background-size: contain;
 	box-sizing: border-box;
 	cursor: pointer;
@@ -192,9 +192,9 @@ h1,h2,h3,h4,h5,h6,ul,li {
 	display: none;
 	bottom: 50px;
 	left: 0;
-	height: 600px;
-	width: 400px;
-	background: url(img/menuPusk.png) 0 0 no-repeat;
+	height: 400px;
+	width: 250px;
+	background: url(../img/menuPusk.png) 0 0 no-repeat;
 	background-size: contain;
 	cursor: pointer;
 }
@@ -206,7 +206,7 @@ h1,h2,h3,h4,h5,h6,ul,li {
 	margin: auto;
 	width: 100%;
 	height: 100%;
-	background: url(img/trava.jpg) 0 0 repeat, green;
+	background: url(../img/trava.jpg) 0 0 repeat, green;
 }
 .ball-box {
 	position: relative;
@@ -239,7 +239,7 @@ h1,h2,h3,h4,h5,h6,ul,li {
 	height: 50px;
 	border-radius: 50%;
 	overflow: hidden;
-	background-image: url(img/football.png);
+	background-image: url(../img/football.png);
 	-webkit-background-size: cover;
 			background-size: cover;
 	z-index: 1;
@@ -250,7 +250,7 @@ h1,h2,h3,h4,h5,h6,ul,li {
 	right: 0;
 	width: 200px;
 	height: 200px;
-	background-image: url(img/vorota.png);
+	background-image: url(../img/vorota.png);
 	-webkit-background-size: cover;
 			background-size: cover;
 }
@@ -261,7 +261,7 @@ h1,h2,h3,h4,h5,h6,ul,li {
 	height: 200px;
 	width: 150px;
 	opacity: 0;
-	background-image: url(img/man.png);
+	background-image: url(../img/man.png);
 	-webkit-background-size: cover;
 			background-size: cover;
 }

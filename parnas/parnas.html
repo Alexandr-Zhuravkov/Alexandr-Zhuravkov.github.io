@@ -4,8 +4,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Заявка</title>
-	<link rel="stylesheet" href="reset.css">
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/style.css">
 	<link rel="shortcut icon" href="img/favicon.ico">
 </head>
 <body>
@@ -125,134 +125,6 @@
 			</div>
 		</div>
 	</div>
-	<script>
-		var button = document.querySelector('.button');
-		var tur = 'Тур на гору \"Парнас\"';
-		var price = 1000;
-		var insurancePrice = 20;
-		var currency = 'ЕВРО';
-		var amount;
-		var priceAmount;
-		var insurancePriceAmount;
-		var windowBox = document.querySelector('.window');
-		var massegeWindow = document.querySelector('.massege-window');
-		var name;
-		var inpText = document.querySelector('#inp-text');
-		var inputTour = document.querySelector('#input-tour');
-		
-		var checkInsurance = document.querySelector('#check-insurance');
-		var insurance = document.querySelector('#insurance');
-		var ord = document.querySelector('.order');
-		var ok = document.querySelector('.ok');
-		var cansel = document.querySelector('.cansel');
-		var regCard = /\b[0-9]{4}\s?[0-9]{4}\s?[0-9]{4}\s?[0-9]{4}\b/g;
-		var menuBtn = document.querySelector('.menuBtn');
-		var itemMenu = document.querySelectorAll('.hide');
-
-		menuBtn.addEventListener('click', function(ev) {
-			ev.preventDefault();
-			showMenu();
-		} );
-		function showMenu () {
-			if (menuBtn.textContent === '▼ Меню ▼') {
-				menuBtn.textContent = '▲ Меню ▲';
-			} else {
-				menuBtn.textContent = '▼ Меню ▼';
-			};
-			for (let item of itemMenu) {
-					item.classList.toggle('show');
-					item.classList.toggle('hide');
-			}
-			
-		};
-		function submit () {
-			var name = document.querySelector('#name');
-			var surname = document.querySelector('#surname');
-			var middlename = document.querySelector('#middlename');
-			ord.style.display = 'none';
-			ok.style.display = 'inline-block';
-			if (!Number(name.value.trim()) && !Number(surname.value.trim()) && !Number(middlename.value.trim()) && name.value.trim() && surname.value.trim() && middlename.value.trim()) {
-				var userName = 'Приветствуем вас, ' + name.value.trim().toUpperCase() + ' !';
-				massegeWindow.textContent = userName + '  ' + 'Сейчас будет оформлен заказ на ' + tur + ' стоимостью ' + price + ' '  + currency + '. Укажите количество путевок, которое желаете купить!' + ' ( стоимость одной страховки ' +insurancePrice + ' ' + currency +' )';
-
-				windowBox.style.display = 'block';
-			} else {
-				massegeWindow.textContent = 'Заполните все поля!';
-				windowBox.style.display = 'block';
-				checkInsurance.style.display = 'none';
-				inputTour.style.display = 'none';
-				
-				ok.style.display = 'none';
-				return;
-			};
-			ok.addEventListener('click', calc);
-
-
-		};
-
-
-		function calc () {
-			ord.style.display = 'inline-block';
-			ok.style.display = 'none';
-			var tour = document.querySelector('#tour');
-			amount = tour.value;
-			priceAmount = price * Number(amount);
-			insurancePriceAmount = insurancePrice * Number(amount);
-			if (Number(amount.trim())) {
-				if (insurance.checked) {
-					massegeWindow.textContent = 'К оплате: ' + (priceAmount + insurancePriceAmount) + ' ' + currency + '!  Оформить заказ? ';
-				} else {
-					massegeWindow.textContent = 'К оплате: ' + priceAmount + ' ' + currency + '!  Оформить заказ? ';
-				};
-				checkInsurance.style.display = 'none';
-				inpText.textContent = 'Введите номер банковской карты :';
-				tour.value = '0000 0000 0000 0000';
-				ord.addEventListener('click', order);
-			} else {
-				tour.value = 'Укажите кол-во';
-				submit();
-			};
-
-
-		};
-
-		function order () {
-			var tour = document.querySelector('#tour');
-			if (regCard.test(tour.value)) {
-				inputTour.style.display = 'none';
-				ok.style.display = 'none';
-				ord.style.display = 'none';
-				massegeWindow.textContent = 'Спасибо , ваш заказ был успешно оформлен! ' + 'Всего доброго , будем рады с вами сотрудичать! ';
-				tour.value = '';
-				tour.style.color = 'black';
-			} else {
-				tour.value = '0000 0000 0000 0000';
-				tour.style.color = 'red';
-			}
-			
-
-		};
-
-		function remove (){
-			document.querySelector('#name').value = '';
-			document.querySelector('#surname').value = '';
-			document.querySelector('#middlename').value = '';
-			inputTour.style.display = 'block';
-			ok.style.display = 'inline-block';
-			tour.value = '';
-			checkInsurance.style.display = 'block';
-			inpText.textContent = 'Кол-во путевок : ';
-			windowBox.style.display = 'none';
-			
-
-		};
-
-		button.addEventListener('click', function(ev){
-			ev.preventDefault();
-			submit();	
-		});
-		cansel.addEventListener('click', remove);
-
-	</script>
+	<script src="js/parnas.js"></script>
 </body>
 </html>
