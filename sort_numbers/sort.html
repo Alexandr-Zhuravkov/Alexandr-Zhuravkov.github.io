@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Генерация случайных чисел</title>
+	<link rel="stylesheet" href="./style.css">
+	<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="  crossorigin="anonymous"></script>
+	<script src="index.js"></script>
+</head>
+<body>
+	<div class="wrap">
+		<div class="container">
+			<button class="on-off"></button>
+			<div class="sticky">
+				<p>Включи !!!</p>
+			</div>
+		</div>
+		<div class="display-back"></div>
+		<div class="display-front">
+			<div class="instructions">
+				<p class="paragraph-1"></p>
+				<p class="paragraph-2">	
+					<span class="cursor"> _ </span>
+				</p>
+			</div>
+			<div class="btns-wrapp">
+				<button class="btn" id="generation">Генерация чисел</button>
+				<button class="btn" id="sort" disabled>Сортировка чисел</button>
+			</div>
+			<div class="clear-both"></div>
+			<ul class="numbers-list" id="box-numbers">
+				<li class="numbers-item">00</li>
+				<li class="numbers-item">00</li>
+				<li class="numbers-item">00</li>
+				<li class="numbers-item">00</li>
+				<li class="numbers-item">00</li>
+				<li class="numbers-item">00</li>
+				<li class="numbers-item">00</li>
+				<li class="numbers-item">00</li>
+			</ul>
+			<div class="process-sort">
+				<span class="process-title">Идет сортировка:</span>
+				<div class="process-value-box">
+					<div class="process-value"></div>
+				</div>
+			</div>
+			<div class="befor-sort">
+				<p class="befor-sort-title">Порядок чисел до сортировки</p>
+				<ul class="befor-sort-list" id="befor-numbers">
+					<li class="befor-sort-item">00</li>
+					<li class="befor-sort-item">00</li>
+					<li class="befor-sort-item">00</li>
+					<li class="befor-sort-item">00</li>
+					<li class="befor-sort-item">00</li>
+					<li class="befor-sort-item">00</li>
+					<li class="befor-sort-item">00</li>
+					<li class="befor-sort-item">00</li>
+				</ul>
+			</div>
+			<div class="after-sort">
+				<p class="after-sort-title">Порядок чисел после сортировки</p>
+				<ul class="after-sort-list" id="after-numbers">
+					<li class="after-sort-item">00</li>
+					<li class="after-sort-item">00</li>
+					<li class="after-sort-item">00</li>
+					<li class="after-sort-item">00</li>
+					<li class="after-sort-item">00</li>
+					<li class="after-sort-item">00</li>
+					<li class="after-sort-item">00</li>
+					<li class="after-sort-item">00</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
